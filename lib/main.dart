@@ -1,3 +1,5 @@
+import 'package:deskwitch/main_game.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -21,10 +24,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Text(
-        'You have pushed the button this many times:',
-      ),
-    );
+    return const GameWidget.controlled(gameFactory: MainGame.new);
   }
 }
