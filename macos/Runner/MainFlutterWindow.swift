@@ -12,7 +12,7 @@ class MainFlutterWindow: NSWindow {
     flutterViewController.backgroundColor = .clear
     self.backgroundColor = .clear
     self.styleMask = [.borderless]
-    self.level = .floating
+    // self.level = .floating
     let visibleFrame = NSScreen.main!.visibleFrame
     let gameSize: CGFloat = 100;
     let windowFrame = NSMakeRect(

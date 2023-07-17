@@ -1,19 +1,19 @@
 import 'dart:async';
 
-import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import 'components/witch.dart';
+
 class MainGame extends FlameGame {
+  final containerSize = Vector2(100, 150);
+
   @override
   Future onLoad() async {
     super.onLoad();
 
     await add(
-      CircleComponent(
-        radius: 50,
-        paint: Paint()..color = Colors.red,
-      ),
+      Witch(size: Vector2.all(containerSize.x)),
     );
   }
 
