@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +20,19 @@ class MainGame extends FlameGame with TapCallbacks {
   Future onLoad() async {
     super.onLoad();
 
-    await add(
+    final container = PositionComponent(
+      size: _containerSize,
+      position: size * 0.5 - _containerSize * 0.5,
+    );
+    await add(container);
+
+    await container.add(
       _emote = Emote(
         size: Vector2.all(_containerSize.x * 0.5),
         position: Vector2(_containerSize.x * 0.25, 0),
       ),
     );
-    await add(
+    await container.add(
       _witch = Witch(
         size: Vector2.all(_containerSize.x),
         position: Vector2(0, _containerSize.y - _containerSize.x),
