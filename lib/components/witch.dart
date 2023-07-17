@@ -3,12 +3,10 @@ import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flame/components.dart';
-import 'package:flame/events.dart';
 
-class Witch extends SpriteAnimationComponent with HasGameRef, TapCallbacks {
-  Witch({super.size})
+class Witch extends SpriteAnimationComponent with HasGameRef {
+  Witch({super.size, super.position})
       : super(
-          position: Vector2((size?.x ?? 0) * 0.5, 0),
           anchor: Anchor.topCenter,
         );
 
@@ -29,6 +27,7 @@ class Witch extends SpriteAnimationComponent with HasGameRef, TapCallbacks {
   Future onLoad() async {
     super.onLoad();
 
+    position.x = size.x * 0.5;
     flipHorizontally();
 
     _idleImage = await game.images.load('idle.png');
@@ -47,10 +46,7 @@ class Witch extends SpriteAnimationComponent with HasGameRef, TapCallbacks {
     _idle();
   }
 
-  @override
-  void onTapDown(TapDownEvent event) {
-    super.onTapDown(event);
-
+  random() {
     switch (_random.nextInt(7)) {
       case 0:
         _jump();

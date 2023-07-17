@@ -14,12 +14,13 @@ class MainFlutterWindow: NSWindow {
     self.styleMask = [.borderless]
     // self.level = .floating
     let visibleFrame = NSScreen.main!.visibleFrame
-    let gameSize: CGFloat = 100;
+    let gameWidth: CGFloat = 100;
+    let gameHeight: CGFloat = 150;
     let windowFrame = NSMakeRect(
-      visibleFrame.size.width - gameSize,
+      visibleFrame.size.width - gameWidth,
       visibleFrame.origin.y,
-      gameSize,
-      gameSize
+      gameWidth,
+      gameHeight
     )
 
     self.contentViewController = flutterViewController
